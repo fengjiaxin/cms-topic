@@ -48,5 +48,6 @@ public interface IChannelService {
 	
 	public List<ChannelTree> generateTree();
 	public List<ChannelTree> generateTreebyParent(Integer pid);
+	public void updateSort(Integer[] ids);
 
 }

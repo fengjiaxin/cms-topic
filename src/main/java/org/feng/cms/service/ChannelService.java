@@ -27,6 +27,7 @@ public class ChannelService implements IChannelService {
 		if(pid!=null && pid>0){
 			Channel pc = channelDao.load(pid);
 			if(pc==null) throw new CmsException("要添加栏目的父对象不正确");
+			channel.setParent(pc);
 		}
 		channel.setOrders(orders+1);
 		channelDao.add(channel);
@@ -69,6 +70,10 @@ public class ChannelService implements IChannelService {
 	@Override
 	public List<ChannelTree> generateTreebyParent(Integer pid) {
 		return channelDao.generateTreeByParent(pid);
+	}
+	@Override
+	public void updateSort(Integer[] ids) {
+		channelDao.updateSort(ids);
 	}
 
 }
